@@ -1,10 +1,9 @@
 <?php
-    //値を取得
     $a = $_POST['txtA'];
     $b = $_POST['txtB'];
     $ope = $_POST['selOpe'];
 
-    //セレクトボックスによって処理を変える
+    
     switch ($ope) {
         case "＋":
           $answer = $a + $b;
@@ -21,7 +20,7 @@
         default:
           break;
       }
-
+      
       
 ?>
     
@@ -42,8 +41,23 @@
             </select>　
 
             <input type = "text" name = "txtB">
-            <?php 
+            <?php     
             print (" = ".$answer."\n");
+            ?>
+            <br>
+            
+            <?php
+            if (is_numeric($a)) {
+            echo '';
+            } else {
+            echo 'LERROR';
+            }
+    
+            if (is_numeric($b)) {
+            echo '';
+            } else {
+            echo 'RERROR';
+            }   
             ?>
             <br>
             <input type = "submit" value = "計算">
