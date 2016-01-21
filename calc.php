@@ -2,24 +2,37 @@
     $a = $_POST['txtA'];
     $b = $_POST['txtB'];
     $ope = $_POST['selOpe'];
+    
+            
+    if (is_numeric($a)) {
+    } else {
+    $lmes = '<FONT COLOR="RED">計算に失敗しました。半角数字を入力してください。';
+    $a = $b = ''; 
+    }
+    
+    if (is_numeric($b)) {
+    } else {
+    $lmes = '<FONT COLOR="RED">計算に失敗しました。半角数字を入力してください。';
+    $a = $b = '';
+    }   
 
     
     switch ($ope) {
         case "＋":
-          $answer = $a + $b;
-          break;
+            $answer = $a + $b;
+            break;
         case "－":
-          $answer = $a - $b;
-          break;
+            $answer = $a - $b;
+            break;
         case "×":
-          $answer = $a * $b;
-          break;
+            $answer = $a * $b;
+            break;
         case "÷":
-          $answer = $a / $b;
-          break;
+            $answer = $a / $b;
+            break;
         default:
-          break;
-      }
+            break;
+    }
       
       
 ?>
@@ -31,33 +44,20 @@
     </head>
     <body>
         <form name="form1" action="calc.php" method="post">
-            <input type = "text" name = "txtA">　
-
+            <input type = "text" name = "txtA">
             <select name="selOpe" size=1>
                 <option value = "＋">＋</option>
                 <option value = "－">－</option>
                 <option value = "×">×</option>
                 <option value = "÷">÷</option>
             </select>　
-
             <input type = "text" name = "txtB">
             <?php     
             print (" = ".$answer."\n");
             ?>
             <br>
-            
             <?php
-            if (is_numeric($a)) {
-            echo '';
-            } else {
-            echo 'LERROR';
-            }
-    
-            if (is_numeric($b)) {
-            echo '';
-            } else {
-            echo 'RERROR';
-            }   
+            print ($lmes)
             ?>
             <br>
             <input type = "submit" value = "計算">
