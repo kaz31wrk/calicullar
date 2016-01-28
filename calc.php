@@ -53,7 +53,7 @@
             </select>　
             <input type = "text" name = "txtB">
             <?php     
-            print (" = ".$answer."\n");
+            print htmlspecialchars(" = ".$answer."\n");
             ?>
             <br>
             <?php
@@ -61,8 +61,8 @@
             ?>
             <br>
             <input type = "submit" value = "計算">
-            <input type = "reset" value = "クリア">
-        </form>
+            <input type = "reset" value = "クリア"> 
+       </form>
     </body>
 </html>
 
